@@ -70,9 +70,15 @@
 
 ## 구현에 사용된 패키지 List
 
+
+
+
+
 - `styled-components` : CSS 를 위한 패키지
 - `redux` : 상태 관리를 위한 패키지
 - `react-router-dom` : 메인 페이지, 상세 페이지를 이동하기 위한 패키지
 - `react-id-generator`: 각각의 Todo에 대한 고유 Id를 부여하기 위한 패키지
 
 ## 구현 결과
+
+https://user-images.githubusercontent.com/83802168/185730068-bc4f1a8b-5ebb-4a19-bc35-893116a5697a.mp4
