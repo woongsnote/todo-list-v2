@@ -25,5 +25,5 @@ const Container = styled.div`
 `;
 
 const Header = styled.h2`
-  margin: 1rem;
+  margin: 1rem 0;
 `;

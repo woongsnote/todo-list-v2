@@ -52,7 +52,7 @@ const AddForm = () => {
       </InputGroup>
       <AddContainer>
         <AddBtn>
-          <FaPlus size="16" color="white" />
+          <FaPlus size="28" />
         </AddBtn>
       </AddContainer>
     </FormContainer>
@@ -63,13 +63,13 @@ export default AddForm;
 
 const FormContainer = styled.form`
   margin: 1rem;
-  border: 2px solid black;
   border-radius: 5px;
   padding: 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   flex: 1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0px 40px rgba(0, 0, 0, 0.08);
 `;
 
 const InputGroup = styled.div`
@@ -79,8 +79,12 @@ const InputGroup = styled.div`
 `;
 
 const InputItem = styled.input`
-  font-size: 20px;
+  font-size: 24px;
   margin: 0.4rem;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 0 20px 0;
+  height: 40px;
 `;
 
 const AddContainer = styled.div`
@@ -91,8 +95,15 @@ const AddContainer = styled.div`
 `;
 
 const AddBtn = styled.button`
-  width: 64px;
-  border: 1px solid skyblue;
-  background-color: skyblue;
-  border-radius: 5px;
+  width: 120px;
+  height: 40px;
+  border: 1px solid #3399ff;
+  background-color: white;
+  border-radius: 12px;
+  color: #3399ff;
+  &:hover {
+    cursor: pointer;
+    background-color: #3399ff;
+    color: #fff;
+  }
 `;

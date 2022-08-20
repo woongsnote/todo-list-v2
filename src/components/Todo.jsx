@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { FaTrash, FaRegCircle, FaRegCheckCircle } from "react-icons/fa";
+import { FaTrashAlt, FaCheck, FaUndo } from "react-icons/fa";
 import { deleteTodo, updateTodo } from "../redux/modules/todos";
 import { Link } from "react-router-dom";
 const Todo = ({ todo }) => {
@@ -13,51 +13,49 @@ const Todo = ({ todo }) => {
     dispatch(deleteTodo(id));
   };
   return (
-    <TodoItem>
-      <BtnContainer>
+    <TodoContainer>
+      <ContentContainer>
+        <TodoTitle>{todo.title}</TodoTitle>
+        <TodoContent>{todo.content}</TodoContent>
+        <DetailLink to={`/${todo.id}`} key={todo.id}>
+          상세보기
+        </DetailLink>
+      </ContentContainer>
+      <BtnControlContainer>
         <BtnItem onClick={() => onUpdateTodo(todo.id)}>
           {todo.isDone ? (
-            <FaRegCheckCircle size="24" color="green" />
+            <FaUndo size="24" color="red" />
           ) : (
-            <FaRegCircle size="24" />
+            <FaCheck size="24" color="green" />
           )}
         </BtnItem>
-      </BtnContainer>
-      <div style={{ flex: 3 }}>
-        <h2>{todo.title}</h2>
-        <p>{todo.content}</p>
-        <DetailLink to={`/${todo.id}`} key={todo.id}>
-          자세히보기
-        </DetailLink>
-      </div>
-      <BtnContainer>
         <BtnItem onClick={() => onDeleteTodo(todo.id)}>
-          <FaTrash size="24" />
+          <FaTrashAlt size="24" color="#66b2ff" />
         </BtnItem>
-      </BtnContainer>
-    </TodoItem>
+      </BtnControlContainer>
+    </TodoContainer>
   );
 };
 
 export default Todo;
 
-const TodoItem = styled.div`
-  margin: 1rem;
+const TodoContainer = styled.div`
+  margin: 0.8rem;
   background-color: white;
-  border: 2px solid gray;
   display: flex;
   align-items: center;
   gap: 1rem;
   flex: 1;
   border-radius: 5px;
-  height: 200px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0px 40px rgba(0, 0, 0, 0.08);
 `;
 
-const BtnContainer = styled.div`
+const BtnControlContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex: 1;
+  margin: 1rem;
 `;
 
 const BtnItem = styled.button`
@@ -68,6 +66,23 @@ const BtnItem = styled.button`
   }
 `;
 
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  flex: 4;
+`;
+
+const TodoTitle = styled.h2`
+  margin: 1rem;
+`;
+
+const TodoContent = styled.p`
+  margin: 1rem;
+`;
+
 const DetailLink = styled(Link)`
   text-decoration: none;
+  color: black;
+  margin: 1rem;
 `;

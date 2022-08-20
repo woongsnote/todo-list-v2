@@ -22,6 +22,6 @@ export default Home;
 
 const TodoListContainer = styled.div`
   display: flex;
-  margin: 1rem;
+  margin: 1.5rem 1rem;
   align-items: flex-start;
 `;
