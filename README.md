@@ -81,4 +81,5 @@
 
 ## 구현 결과
 
-https://user-images.githubusercontent.com/83802168/185730068-bc4f1a8b-5ebb-4a19-bc35-893116a5697a.mp4
+![todolist-v2](https://user-images.githubusercontent.com/83802168/185730580-826735d1-962d-4409-a443-ab657a29ff2b.gif)
+
