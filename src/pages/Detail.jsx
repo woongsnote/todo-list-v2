@@ -4,9 +4,11 @@ import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import { getTodo } from "../redux/modules/todos";
-const Detail = () => {
+
+function Detail() {
   const dispatch = useDispatch();
   const todo = useSelector((state) => state.todos.todo);
+  console.log(todo);
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -38,7 +40,7 @@ const Detail = () => {
       </DetailContainer>
     </Layout>
   );
-};
+}
 
 export default Detail;
 
