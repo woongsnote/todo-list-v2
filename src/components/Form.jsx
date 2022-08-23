@@ -3,14 +3,11 @@ import nextId from "react-id-generator";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/modules/todos";
 import styled from "styled-components";
-import { FaPlus } from "react-icons/fa";
 
-const AddForm = () => {
-  const id = nextId("todo-");
-
+export default function Form() {
   const dispatch = useDispatch();
 
-  const initialState = { id: 0, title: "", content: "", isDone: false };
+  const initialState = { id: "1", title: "", content: "", isDone: false };
 
   const [todo, setTodo] = useState(initialState);
 
@@ -22,6 +19,8 @@ const AddForm = () => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
     if (todo.title.trim() === "" || todo.content.trim() === "") return;
+
+    const id = nextId("todo-");
 
     dispatch(addTodo({ ...todo, id }));
 
@@ -50,19 +49,14 @@ const AddForm = () => {
           onChange={onChangeHandler}
         />
       </InputGroup>
-      <AddContainer>
-        <AddBtn>
-          <FaPlus size="28" />
-        </AddBtn>
-      </AddContainer>
+
+      <AddBtn color="#3399ff">추가하기</AddBtn>
     </FormContainer>
   );
-};
-
-export default AddForm;
+}
 
 const FormContainer = styled.form`
-  margin: 1rem;
+  margin: 1.6rem;
   border-radius: 5px;
   padding: 1rem;
   display: flex;
@@ -87,23 +81,11 @@ const InputItem = styled.input`
   height: 40px;
 `;
 
-const AddContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-`;
-
 const AddBtn = styled.button`
-  width: 120px;
-  height: 40px;
-  border: 1px solid #3399ff;
-  background-color: white;
-  border-radius: 12px;
-  color: #3399ff;
+  align-self: center;
+  border: 2px solid ${(props) => props.color || ""};
+  color: ${(props) => props.color || ""};
   &:hover {
-    cursor: pointer;
-    background-color: #3399ff;
-    color: #fff;
+    background-color: ${(props) => props.color || ""};
   }
 `;

@@ -6,7 +6,7 @@ const HeaderContainer = styled.div`
   border-radius: 5px;
 `;
 
-const Title = styled.h2`
+const Title = styled.h1`
   margin: 0.5rem;
 `;
 

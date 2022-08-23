@@ -30,16 +30,9 @@ export const getTodo = (payload) => {
 };
 
 const initialState = {
-  todos: [
-    {
-      id: "todo-1",
-      title: "react 과제하기",
-      content: "리액트 과제 끝내기!",
-      isDone: false,
-    },
-  ],
+  todos: [],
   todo: {
-    id: "todo-0",
+    id: "0",
     title: "",
     content: "",
     isDone: false,
@@ -64,14 +57,12 @@ const todos = (state = initialState, action) => {
       return {
         ...state,
         todos: state.todos.map((todo) => {
-          if (todo.id === action.payload) {
-            return {
-              ...todo,
-              isDone: !todo.isDone,
-            };
-          } else {
-            return todo;
-          }
+          return todo.id === action.payload
+            ? {
+                ...todo,
+                isDone: !todo.isDone,
+              }
+            : todo;
         }),
       };
 
