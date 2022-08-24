@@ -5,10 +5,9 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import { getTodo } from "../redux/modules/todos";
 
-function Detail() {
+export default function Detail() {
   const dispatch = useDispatch();
   const todo = useSelector((state) => state.todos.todo);
-  console.log(todo);
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -19,9 +18,9 @@ function Detail() {
 
   return (
     <Layout>
-      <DetailContainer>
-        <DetailDialog>
-          <DetailHeader>
+      <Container>
+        <Dialog>
+          <Header>
             <p>ID: {todo.id}</p>
             <BackButton
               onClick={() => {
@@ -30,67 +29,60 @@ function Detail() {
             >
               이전으로
             </BackButton>
-          </DetailHeader>
+          </Header>
           <ContentsContainer>
             <h2>{todo.title}</h2>
             <p>{todo.content}</p>
           </ContentsContainer>
-          <DetailFooter>상태: {todo.isDone ? "완료" : "진행중"}</DetailFooter>
-        </DetailDialog>
-      </DetailContainer>
+          <Footer>상태: {todo.isDone ? "완료" : "진행중"}</Footer>
+        </Dialog>
+      </Container>
     </Layout>
   );
 }
 
-export default Detail;
-
-const DetailContainer = styled.div`
+const Wrapper = styled.div`
   display: flex;
+`;
+
+const Container = styled(Wrapper)`
   width: 100%;
   flex-direction: column;
   margin: 20px auto;
-  align-items: center;
   justify-content: center;
 `;
 
-const DetailDialog = styled.div`
+const Dialog = styled(Container)`
   width: 600px;
   height: 480px;
   border: 2px solid #eee;
-  display: flex;
-  flex-direction: column;
+  border-radius: 5px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0px 40px rgba(0, 0, 0, 0.08);
 `;
 
-const DetailHeader = styled.div`
-  display: flex;
+const Header = styled(Wrapper)`
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 16px;
   align-items: center;
   height: 60px;
 `;
 
 const BackButton = styled.button`
-  background-color: #fff;
-  border-radius: 12px;
-  width: 120px;
-  height: 32px;
-  border: 1px solid #eee;
+  border: 2px solid #818181;
+  color: #818181;
   &:hover {
-    cursor: pointer;
-    border: 2px solid #ddd;
+    background-color: #818181;
   }
 `;
 
 const ContentsContainer = styled.div`
-  padding: 2rem;
+  padding: 16px;
   height: 300px;
 `;
 
-const DetailFooter = styled.div`
-  display: flex;
+const Footer = styled(Wrapper)`
   bottom: 0;
   height: 48px;
   align-items: center;
-  padding: 2rem;
+  padding: 16px;
 `;

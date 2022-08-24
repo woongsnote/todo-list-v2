@@ -7,7 +7,7 @@ const TodoList = ({ todos, title, status }) => {
       <Header>{title}</Header>
       {todos.map((todo) => {
         if (todo.isDone === status) {
-          return <Todo key={todo.id} todo={todo} />;
+          return <Todo key={todo.id} {...todo} />;
         } else {
           return null;
         }
@@ -30,6 +30,6 @@ const Header = styled.h2`
   border: 1px solid #eee;
   padding: 16px;
   text-align: center;
-  border-radius: 15px;
+  border-radius: 5px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0px 40px rgba(0, 0, 0, 0.08);
 `;

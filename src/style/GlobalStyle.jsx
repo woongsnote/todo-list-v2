@@ -3,10 +3,10 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
     
     button{
-        width: 120px;
-        height: 40px;
+        width: 96px;
+        height: 36px;
         background-color: white;
-        border-radius: 12px;
+        border-radius: 4px;
         &:hover {
                     cursor: pointer;
                     color: #fff;

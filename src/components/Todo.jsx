@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { deleteTodo, updateTodo } from "../redux/modules/todos";
 import { Link } from "react-router-dom";
-const Todo = ({ todo }) => {
+const Todo = ({ id, title, content, isDone }) => {
   const dispatch = useDispatch();
   const onUpdateTodo = (id) => {
     dispatch(updateTodo(id));
@@ -14,18 +14,18 @@ const Todo = ({ todo }) => {
   return (
     <TodoContainer>
       <ContentContainer>
-        <TodoTitle>{todo.title}</TodoTitle>
-        <TodoContent>{todo.content}</TodoContent>
+        <TodoTitle>{title}</TodoTitle>
+        <TodoContent>{content}</TodoContent>
       </ContentContainer>
       <BtnControlContainer>
-        <DetailLink to={`/${todo.id}`} key={todo.id}>
+        <DetailLink to={`/${id}`} key={id}>
           <StyledBtn color="#04a9eb">상세보기</StyledBtn>
         </DetailLink>
 
-        <StyledBtn color="#2fce44" onClick={() => onUpdateTodo(todo.id)}>
-          {todo.isDone ? "취소하기" : "완료하기"}
+        <StyledBtn color="#2fce44" onClick={() => onUpdateTodo(id)}>
+          {isDone ? "취소하기" : "완료하기"}
         </StyledBtn>
-        <StyledBtn color="red" onClick={() => onDeleteTodo(todo.id)}>
+        <StyledBtn color="red" onClick={() => onDeleteTodo(id)}>
           삭제하기
         </StyledBtn>
       </BtnControlContainer>
