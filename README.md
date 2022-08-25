@@ -15,6 +15,7 @@
 - todos 데이터는 리덕스를 사용해서 전역으로 상태를 관리.
 - todos 모듈은 `Ducks 패턴` 으로 구현.
 - 컴포넌트 구조는 자유롭게 구현.
+
 </details>
 
 <details>
@@ -88,6 +89,4 @@
 
 ## 구현 결과
 
-https://woongsnote.github.io/todo-list-v2
-
-![todolist-v2](https://user-images.githubusercontent.com/83802168/185730580-826735d1-962d-4409-a443-ab657a29ff2b.gif)
+<https://woongsnote.github.io/todo-list-v2>
